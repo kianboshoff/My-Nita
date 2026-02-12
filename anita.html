@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For Anita ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.container {
+    margin-top: 8%;
+    padding: 20px;
+    display: none;
+}
+
+h1 { font-size: 40px; }
+p { font-size: 20px; max-width: 600px; margin: auto; }
+
+button {
+    padding: 15px 35px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin: 15px;
+    transition: 0.3s ease;
+}
+
+#yesBtn {
+    background-color: white;
+    color: #ff4b7d;
+}
+
+#noBtn {
+    background-color: #ff4b7d;
+    color: white;
+    position: absolute;
+}
+
+#response {
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+.heart {
+    position: fixed;
+    bottom: -10px;
+    font-size: 20px;
+    animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+}
+
+#intro {
+    font-size: 28px;
+    margin-top: 20%;
+}
+
+img {
+    width: 250px;
+    border-radius: 20px;
+    margin-top: 20px;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.4);
+}
+</style>
+</head>
+
+<body>
+
+<div id="intro">Loading something special for Anita...</div>
+
+<div class="container" id="mainContent">
+    <h1>Anita ❤️</h1>
+
+    <img src="photo.jpg" alt="Us">
+
+    <p>
+       My beautiful Nita,
+
+ I love you. You mean so much to me, more than I probably say enough. I miss you every single day — your smile, your voice, the way you make everything feel lighter and better just by being you. Being away from you makes me realize even more how lucky I am to have you in my life.
+
+I really wish I could ask you this in person, look into your eyes, hold your hand, and tell you how special you are to me. But for now, I hope this message carries my heart to you.
+
+It might be a little last minute… but better late than never, right? My Nita, will you be my Valentine? Not just for a day, but as the girl who has my heart always. ❤️ .
+    </p>
+
+    <h2>Will you be my Valentine?</h2>
+
+    <button id="yesBtn" onclick="sayYes()">Yes 💖</button>
+    <button id="noBtn" onmouseover="moveButton()">No 😜</button>
+
+    <div id="response"></div>
+    <p id="countdown"></p>
+
+    <p style="margin-top:30px;">Love, Kian ❤️</p>
+</div>
+
+<audio autoplay loop>
+  <source src="YOUR_MUSIC.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+// Intro transition
+setTimeout(function(){
+    document.getElementById("intro").style.display = "none";
+    document.getElementById("mainContent").style.display = "block";
+}, 2500);
+
+// Moving No button
+function moveButton() {
+    let button = document.getElementById("noBtn");
+    button.style.top = Math.random() * window.innerHeight + "px";
+    button.style.left = Math.random() * window.innerWidth + "px";
+}
+
+// Yes response
+function sayYes() {
+    document.getElementById("response").innerHTML =
+    "Anita... ❤️<br><br>You just made me the happiest person alive.<br><br>I can't wait for the day distance disappears and I finally get to hold you for real.";
+    createHearts();
+}
+
+// Floating hearts
+function createHearts() {
+    for (let i = 0; i < 40; i++) {
+        let heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+        document.body.appendChild(heart);
+    }
+}
+
+// Countdown
+let valentines = new Date("February 14, 2026 00:00:00").getTime();
+
+let x = setInterval(function() {
+    let now = new Date().getTime();
+    let distance = valentines - now;
+
+    let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+    if (distance > 0) {
+        document.getElementById("countdown").innerHTML =
+        days + " days until Valentine's Day ❤️";
+    } else {
+        document.getElementById("countdown").innerHTML =
+        "It's Valentine's Day ❤️";
+        clearInterval(x);
+    }
+}, 1000);
+
+</script>
+
+</body>
+</html>
